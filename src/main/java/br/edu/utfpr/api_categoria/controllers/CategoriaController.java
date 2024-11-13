@@ -3,6 +3,7 @@ package br.edu.utfpr.api_categoria.controllers;
 import br.edu.utfpr.api_categoria.dtos.CategoriaDTO;
 import br.edu.utfpr.api_categoria.models.Categoria;
 import br.edu.utfpr.api_categoria.repositories.CategoriaRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody CategoriaDTO categoriaDTO){
+    public ResponseEntity<?> create(@Valid @RequestBody CategoriaDTO categoriaDTO){
         Categoria novaCategoria = new Categoria();
 
         novaCategoria.setName(categoriaDTO.name());
